@@ -24,8 +24,8 @@ body {
 }
 
 #calculator{
-  width: 95%;
-  margin-left: auto;
+  width: 70%;
+  margin-left: 2%;
   margin-right: auto;
   margin-bottom: 3%;
   padding-left: 10px;
@@ -35,10 +35,37 @@ body {
   border-color: #dde7eb;
 }
 
-#lower_border{
+#lowerBorder{
   background-color: #3c3935;
+}
+
+#rightAlignedButtons{
+  margin-left: 73%;
+  margin-right: 1%;
+}
+
+#modeButton{
+  background-color: #a6192d;
+  color: white;
+  width: 48%;
+  padding-left: auto;
+  padding-right: auto;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  margin: 1px;
+  border-radius: 5px;
+  border-color: #00000000;
+}
+
+#addRowButton{
+  background-color: #a6192d;
+  border-radius: 5px;
+  border-color: #00000000;
+  color: white;
+  padding: 10px;
 }
 
 h2{
   color: #a6192d;
+  font-size: 130%
 }
