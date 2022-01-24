@@ -46,7 +46,20 @@ body {
   margin-right: 1%;
 }
 
-#modeButton{
+#weightedButton{
+  background-color: #a6192d;
+  color: white;
+  width: 48%;
+  padding-left: auto;
+  padding-right: auto;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  margin: 1px;
+  border-radius: 5px;
+  border-color: #00000000;
+}
+
+#meanButton{
   background-color: #a6192d;
   color: white;
   width: 48%;
@@ -87,24 +100,11 @@ thead{
   background-color: #dddddd;
 }
 
-th.name{
+th{
   width: 20%;
-}
-
-th.shortName{
-  width: 20%;
-}
-
-th.weight{
-  width: 20%;
-}
-
-th.grade{
-  width: 20%
-}
-
-th.percent{ /* Technically unnecessary, but for completness... */
-  width: 20%;
+  text-align: left;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 /* Generics */

@@ -25,12 +25,12 @@
         <br />
         <table width=100%>
           <thead>
-            <tr height="20px">
-              <td class="name"><b>Name</b></td>
-              <td class="shortName"><b>Short Name</b></td>
-              <td class="weight"><b>Weight</b></td>
-              <td class="grade"><b>Grade</b></td>
-              <td class="percent"><b>Percent</b></td>
+            <tr class="header">
+              <th class="name"><b>Name</b></td>
+              <th class="shortName"><b>Short Name</b></td>
+              <th class="weight"><b>Weight</b></td>
+              <th class="grade"><b>Grade</b></td>
+              <th class="percent"><b>Percent</b></td>
             </tr>
           </thead>
           <tbody>
@@ -41,21 +41,21 @@
               <td><input type="text" size="1" class="gradeRecevied" /> / <input type="text" size="1" class="gradeMaximum" /></td>
               <td>RESULT</td>
             </tr>
-            <tr>
+            <tr class="contents">
               <td>Activity 2</td>
               <td>A2</td>
               <td><input type="text" size="1" class="weight" /></td>
               <td><input type="text" size="1" class="gradeRecevied" /> / <input type="text" size="1" class="gradeMaximum" /></td>
               <td>RESULT</td>
             </tr>
-            <tr>
+            <tr class="contents">
               <td>Activity 3</td>
               <td>A3</td>
               <td><input type="text" size="1" class="weight" /></td>
               <td><input type="text" size="1" class="gradeRecevied" /> / <input type="text" size="1" class="gradeMaximum" /></td>
               <td>RESULT</td>
             </tr>
-            <tr>
+            <tr class="contents">
               <td>Activity 4</td>
               <td>A4</td>
               <td><input type="text" size="1" class="weight" /></td>
@@ -70,8 +70,8 @@
       <br />
       <h2>Result</h2>
         <div id="rightAlignedButtons">
-          <button onclick="weightedMode()" id="modeButton">WEIGHTED</button>
-          <button onclick="meanMode()" id="modeButton">MEAN</button>
+          <button onclick="weightedMode()" id="weightedButton">WEIGHTED</button>
+          <button onclick="meanMode()" id="meanButton">MEAN</button>
         </div>
       </div>
       <br />
