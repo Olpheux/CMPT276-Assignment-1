@@ -66,7 +66,6 @@ function weightedCalc(){
     var finalResult = weightedResultTotal / weightsTotal;
 
     // Finally, output weighted results
-    // Only one thing uses H2, so this is fine, but probably bad practice
-    var finalResultOutput = document.querySelector("h2")
+    var finalResultOutput = document.querySelector("#finalResult");
     finalResultOutput.innerHTML = "Result: " + finalResult;
 }
