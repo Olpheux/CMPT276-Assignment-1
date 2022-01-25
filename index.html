@@ -6,6 +6,7 @@
   <title>Average Grade Calculator</title>
 
   <link rel="stylesheet" href="calculator.css">
+  <link rel="script" href="calculator.js">
 </head>
 
 <body>
@@ -23,52 +24,54 @@
         <br />
         <br />
         <br />
-        <table width=100%>
-          <thead>
-            <tr class="header">
-              <th class="name"><b>Name</b></td>
-              <th class="shortName"><b>Short Name</b></td>
-              <th class="weight"><b>Weight</b></td>
-              <th class="grade"><b>Grade</b></td>
-              <th class="percent"><b>Percent</b></td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="contents">
-              <td>Activity 1</td>
-              <td>A1</td>
-              <td><input type="text" size="1" class="weight" /></td>
-              <td><input type="text" size="1" class="gradeRecevied" /> / <input type="text" size="1" class="gradeMaximum" /></td>
-              <td>RESULT</td>
-            </tr>
-            <tr class="contents">
-              <td>Activity 2</td>
-              <td>A2</td>
-              <td><input type="text" size="1" class="weight" /></td>
-              <td><input type="text" size="1" class="gradeRecevied" /> / <input type="text" size="1" class="gradeMaximum" /></td>
-              <td>RESULT</td>
-            </tr>
-            <tr class="contents">
-              <td>Activity 3</td>
-              <td>A3</td>
-              <td><input type="text" size="1" class="weight" /></td>
-              <td><input type="text" size="1" class="gradeRecevied" /> / <input type="text" size="1" class="gradeMaximum" /></td>
-              <td>RESULT</td>
-            </tr>
-            <tr class="contents">
-              <td>Activity 4</td>
-              <td>A4</td>
-              <td><input type="text" size="1" class="weight" /></td>
-              <td><input type="text" size="1" class="gradeRecevied" /> / <input type="text" size="1" class="gradeMaximum" /></td>
-              <td>RESULT</td>
-            </tr>
-          </tbody>
-        </table>
-      <br />
-      <br />
-      <button onclick="addRow()" id="addRowButton">ADD ACTIVITY</button>
-      <br />
-      <h2>Result</h2>
+        <form id="calculatorForm">
+          <table width=100% id="calculatorTable">
+            <thead>
+              <tr class="header">
+                <th class="name"><b>Name</b></td>
+                <th class="shortName"><b>Short Name</b></td>
+                <th class="weight"><b>Weight</b></td>
+                <th class="grade"><b>Grade</b></td>
+                <th class="percent"><b>Percent</b></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="contents">
+                <td>Activity 1</td>
+                <td>A1</td>
+                <td><input type="text" size="1" class="weight" /></td>
+                <td><input type="text" size="1" class="gradeRecevied" /> / <input type="text" size="1" class="gradeMaximum" /></td>
+                <td>RESULT</td>
+              </tr>
+              <tr class="contents">
+                <td>Activity 2</td>
+                <td>A2</td>
+                <td><input type="text" size="1" class="weight" /></td>
+                <td><input type="text" size="1" class="gradeRecevied" /> / <input type="text" size="1" class="gradeMaximum" /></td>
+                <td>RESULT</td>
+              </tr>
+              <tr class="contents">
+                <td>Activity 3</td>
+                <td>A3</td>
+                <td><input type="text" size="1" class="weight" /></td>
+                <td><input type="text" size="1" class="gradeRecevied" /> / <input type="text" size="1" class="gradeMaximum" /></td>
+                <td>RESULT</td>
+              </tr>
+              <tr class="contents">
+                <td>Activity 4</td>
+                <td>A4</td>
+                <td><input type="text" size="1" class="weight" /></td>
+                <td><input type="text" size="1" class="gradeRecevied" /> / <input type="text" size="1" class="gradeMaximum" /></td>
+                <td>RESULT</td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+        <br />
+        <br />
+        <button onclick="addRow();" id="addRowButton">ADD ACTIVITY</button>
+        <br />
+        <h2>Result</h2>
         <div id="rightAlignedButtons">
           <button onclick="weightedMode()" id="weightedButton">WEIGHTED</button>
           <button onclick="meanMode()" id="meanButton">MEAN</button>
