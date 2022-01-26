@@ -64,11 +64,11 @@ function weightedCalc(){
     // Finally, output results
     var resultsColumn = document.querySelectorAll(".result");
     for(i = 0; i < rowCounter; i++){
-        resultsColumn[i].innerHTML = (percents[i] * 100);
+        resultsColumn[i].innerHTML = ((percents[i] * 100).toFixed(3));
     }
 
     var finalResultOutput = document.querySelector("#finalResult");
-    finalResultOutput.innerHTML = "Result: " + (finalResult * 100) + "%";
+    finalResultOutput.innerHTML = "Result: " + ((finalResult * 100).toFixed(3)) + "%";
 }
 
 function meanCalc(){
@@ -97,9 +97,9 @@ function meanCalc(){
     // Finally, output results
     var resultsColumn = document.querySelectorAll(".result");
     for(i = 0; i < rowCounter; i++){
-        resultsColumn[i].innerHTML = (percents[i] * 100);
+        resultsColumn[i].innerHTML = ((percents[i] * 100).toFixed(3));
     }
 
     var finalResultOutput = document.querySelector("#finalResult");
-    finalResultOutput.innerHTML = "Result: " + (finalResult * 100) + "%";
+    finalResultOutput.innerHTML = "Result: " + ((finalResult * 100).toFixed(3)) + "%";
 }
