@@ -48,12 +48,6 @@ function weightedCalc(){
 
         // Probably bad variable naming here...
         percents.push(percent);
-
-        console.log(weights[iterations]);
-        console.log(gradeReceived);
-        console.log(gradeMaximum);
-        console.log(percent);
-        console.log("==========");
     }
 
     var weightedResultTotal = 0;
@@ -66,6 +60,38 @@ function weightedCalc(){
     }
 
     var finalResult = weightedResultTotal / weightsTotal;
+
+    // Finally, output results
+    var resultsColumn = document.querySelectorAll(".result");
+    for(i = 0; i < rowCounter; i++){
+        resultsColumn[i].innerHTML = (percents[i] * 100);
+    }
+
+    var finalResultOutput = document.querySelector("#finalResult");
+    finalResultOutput.innerHTML = "Result: " + (finalResult * 100) + "%";
+}
+
+function meanCalc(){
+    // Code largely copied from above with weighting functionality stripped out
+    var percents = []; // Set up empty array to hold grades
+
+    // Collect grades
+    for(iterations = 0; iterations < rowCounter; iterations++){
+        var gradeReceived = Number((document.getElementById("calculatorForm").elements.item((iterations * 3) + 1).value));
+        var gradeMaximum = Number((document.getElementById("calculatorForm").elements.item((iterations * 3) + 2).value));
+    
+        var percent = gradeReceived / gradeMaximum;
+
+        // Probably bad variable naming here...
+        percents.push(percent);
+    }
+
+    // Now that all data has been collected, we can process it
+    for(iterations = 0; iterations < rowCounter; iterations++){
+        resultTotal = resultTotal + (percents[iterations]);
+    }
+
+    var finalResult = resultTotal / rowCounter;
 
     // Finally, output results
     var resultsColumn = document.querySelectorAll(".result");
