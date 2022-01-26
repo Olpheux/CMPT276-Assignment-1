@@ -40,9 +40,9 @@ function weightedCalc(){
         //
         // Due to layout of the form, this will work regardless of how many rows are added
         // (Up until an int overflow, I guess, but why are you doing that?)
-        weights.push(document.getElementById("calculatorForm").elements.item((iterations * 3)));
-        var gradeReceived = document.getElementById("calculatorForm").elements.item((iterations * 3) + 1);
-        var gradeMaximum = document.getElementById("calculatorForm").elements.item((iterations * 3) + 2);
+        weights.push(Number(((document.getElementById("calculatorForm").elements.item((iterations * 3)))).value));
+        var gradeReceived = Number((document.getElementById("calculatorForm").elements.item((iterations * 3) + 1).value));
+        var gradeMaximum = Number((document.getElementById("calculatorForm").elements.item((iterations * 3) + 2).value));
     
         var percent = gradeReceived / gradeMaximum;
 
@@ -52,6 +52,13 @@ function weightedCalc(){
         // And put the result into the results column.
         var resultOutput = document.querySelector(".result");
         resultOutput.innerHTML = (percent);
+
+
+        console.log(weights[iterations]);
+        console.log(gradeReceived);
+        console.log(gradeMaximum);
+        console.log(percent);
+        console.log("==========");
     }
 
     var weightedResultTotal = 0;
@@ -67,5 +74,5 @@ function weightedCalc(){
 
     // Finally, output weighted results
     var finalResultOutput = document.querySelector("#finalResult");
-    finalResultOutput.innerHTML = "Result: " + finalResult;
+    finalResultOutput.innerHTML = "Result: " + (finalResult * 100) + "%";
 }
