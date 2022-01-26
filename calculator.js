@@ -49,11 +49,6 @@ function weightedCalc(){
         // Probably bad variable naming here...
         percents.push(percent);
 
-        // And put the result into the results column.
-        var resultOutput = document.querySelector(".result");
-        resultOutput.innerHTML = (percent);
-
-
         console.log(weights[iterations]);
         console.log(gradeReceived);
         console.log(gradeMaximum);
@@ -72,7 +67,12 @@ function weightedCalc(){
 
     var finalResult = weightedResultTotal / weightsTotal;
 
-    // Finally, output weighted results
+    // Finally, output results
+    var resultsColumn = document.querySelectorAll(".result");
+    for(i = 0; i < rowCounter; i++){
+        resultsColumn[i].innerHTML = (percents[i] * 100);
+    }
+
     var finalResultOutput = document.querySelector("#finalResult");
     finalResultOutput.innerHTML = "Result: " + (finalResult * 100) + "%";
 }
