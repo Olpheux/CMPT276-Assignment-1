@@ -87,6 +87,7 @@ function meanCalc(){
     }
 
     // Now that all data has been collected, we can process it
+    var resultTotal = 0;
     for(iterations = 0; iterations < rowCounter; iterations++){
         resultTotal = resultTotal + (percents[iterations]);
     }
