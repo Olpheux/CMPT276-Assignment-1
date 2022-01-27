@@ -74,7 +74,11 @@ function weightedCalc(){
         }
     }
 
-    var finalResult = weightedResultTotal / weightsTotal;
+    if(weightsTotal == 0){
+        var finalResult = 0;
+    } else {
+        var finalResult = weightedResultTotal / weightsTotal;
+    }
 
     // Finally, output results
     var resultsColumn = document.querySelectorAll(".result");
