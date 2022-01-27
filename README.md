@@ -6,5 +6,3 @@ Required to create basic average grade calculator (with weighting option) using 
 Only permitted 3 files (a .html, .css, and .js), with no major framework usage, just the basics here.
 
 Must upload changes to Github/Gitlab, and have end result viewable on Heroku.
-
-Completed and submitted on Jan 26, 2022.
