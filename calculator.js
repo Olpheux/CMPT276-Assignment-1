@@ -32,6 +32,7 @@ function addRow(){
 function weightedCalc(){
     var weights = []; // Set up empty array to hold weights and grades
     var percents = [];
+    var validRows = 0;
 
     // Collect weights and grades
     for(iterations = 0; iterations < rowCounter; iterations++){
@@ -42,21 +43,35 @@ function weightedCalc(){
         // (Up until an int overflow, I guess, but why are you doing that?)
         weights.push(Number(((document.getElementById("calculatorForm").elements.item((iterations * 3)))).value));
         var gradeReceived = Number((document.getElementById("calculatorForm").elements.item((iterations * 3) + 1).value));
-        var gradeMaximum = Number((document.getElementById("calculatorForm").elements.item((iterations * 3) + 2).value));
+        var gradeMaximumRawValue = document.getElementById("calculatorForm").elements.item((iterations * 3) + 2).value;
     
-        var percent = gradeReceived / gradeMaximum;
+        if(gradeMaximumRawValue == null || gradeMaximumRawValue == 0){
+            alert("Division by zero (or blank field) detected. Omitting from calculations...");
+            percents.push(0);
+        } else {
+            var gradeMaximum = Number(gradeMaximumRawValue);
+            var percent = gradeReceived / gradeMaximum;
 
-        // Probably bad variable naming here...
-        percents.push(percent);
+            // Probably bad variable naming here...
+            percents.push(percent);
+            validRows++;
+        }
     }
 
     var weightedResultTotal = 0;
     var weightsTotal = 0;
 
     // Now that all data has been collected, we can process it
+    // If we have an error on above step, this effectively omits it from
+    // the calculations, as it relies on multiplication and addition -- 
+    // will just add 0 if an error!
+    // Still have to manually check on weighting however; possible to
+    // have a high-weighted assignment we got a 0% on.
     for(iterations = 0; iterations < rowCounter; iterations++){
         weightedResultTotal = weightedResultTotal + (percents[iterations] *  weights[iterations]);
-        weightsTotal = weightsTotal + weights[iterations];
+        if(gradeMaximumRawValue != null || gradeMaximumRawValue != 0){
+            weightsTotal = weightsTotal + weights[iterations];
+        }
     }
 
     var finalResult = weightedResultTotal / weightsTotal;
@@ -74,25 +89,33 @@ function weightedCalc(){
 function meanCalc(){
     // Code largely copied from above with weighting functionality stripped out
     var percents = []; // Set up empty array to hold grades
+    var validRows = 0;
 
     // Collect grades
     for(iterations = 0; iterations < rowCounter; iterations++){
         var gradeReceived = Number((document.getElementById("calculatorForm").elements.item((iterations * 3) + 1).value));
-        var gradeMaximum = Number((document.getElementById("calculatorForm").elements.item((iterations * 3) + 2).value));
+        var gradeMaximumRawValue = document.getElementById("calculatorForm").elements.item((iterations * 3) + 2).value;
     
-        var percent = gradeReceived / gradeMaximum;
+        if(gradeMaximumRawValue == null || gradeMaximumRawValue == 0){
+            alert("Division by zero (or blank field) detected. Omitting from calculations...");
+            percents.push(0);
+        } else {
+            var gradeMaximum = Number(gradeMaximumRawValue);
+            var percent = gradeReceived / gradeMaximum;
 
-        // Probably bad variable naming here...
-        percents.push(percent);
+            // Probably bad variable naming here...
+            percents.push(percent);
+            validRows++;
+        }
     }
 
     // Now that all data has been collected, we can process it
     var resultTotal = 0;
-    for(iterations = 0; iterations < rowCounter; iterations++){
+    for(iterations = 0; iterations < percents.length; iterations++){
         resultTotal = resultTotal + (percents[iterations]);
     }
 
-    var finalResult = resultTotal / rowCounter;
+    var finalResult = resultTotal / validRows;
 
     // Finally, output results
     var resultsColumn = document.querySelectorAll(".result");
